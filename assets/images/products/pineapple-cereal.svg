@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <linearGradient id="pineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A9D8F"/>
+      <stop offset="100%" style="stop-color:#264653"/>
+    </linearGradient>
+    <linearGradient id="pineSide" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1D6B61"/>
+      <stop offset="100%" style="stop-color:#2A9D8F"/>
+    </linearGradient>
+  </defs>
+  
+  <rect x="50" y="50" width="280" height="480" rx="8" fill="url(#pineGrad)"/>
+  <rect x="330" y="70" width="40" height="440" rx="4" fill="url(#pineSide)"/>
+  <polygon points="50,50 170,20 330,50" fill="#1D7870"/>
+  
+  <rect x="80" y="80" width="220" height="60" rx="4" fill="white" opacity="0.9"/>
+  <text x="190" y="120" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#264653" text-anchor="middle">BRAINROAR</text>
+  
+  <circle cx="190" cy="220" r="60" fill="white" opacity="0.9"/>
+  <text x="190" y="240" font-family="Arial, sans-serif" font-size="48" text-anchor="middle">LION</text>
+  
+  <text x="190" y="340" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">PINEAPPLE</text>
+  <text x="190" y="380" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">BANANA</text>
+  
+  <text x="190" y="430" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">WITH LION'S MANE</text>
+  
+  <circle cx="280" cy="480" r="35" fill="#E9C46A"/>
+  <text x="280" y="475" font-family="Arial, sans-serif" font-size="12" fill="#264653" text-anchor="middle">500mg</text>
+  <text x="280" y="490" font-family="Arial, sans-serif" font-size="10" fill="#264653" text-anchor="middle">LION'S MANE</text>
+</svg>

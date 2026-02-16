@@ -1,585 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrainRoar - Lion's Mane Cereal for Kids</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>BrainRoar</title>
+    <link rel="stylesheet" href="assets/css/layout_87f7cac3.css">
+    <link rel="stylesheet" href="assets/css/site_1ab04d16.css">
     <style>
-        @font-face {
-            font-family: 'EuclidFlexLight';
-            src: url("assets/fonts/EuclidFlex-Light_7d54f971.otf") format('opentype');
-        }
-        @font-face {
-            font-family: 'EuclidFlexMedium';
-            src: url("assets/fonts/EuclidFlex-Medium_e77302ea.otf") format('opentype');
-        }
-        @font-face {
-            font-family: 'Avenir Book';
-            src: url("assets/fonts/avenir-book_c3443552.woff") format('woff');
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* BRAINROAR CUSTOM COLORS */
+        .mango h3, .mango h5, .mango .chem-stats h6, .mango .chem-stats .label { color: #E9C46A; }
+        .mango .full-size { border-color: #E9C46A; }
+        .mango .fill, .mango .fill span { background-color: #E9C46A; }
         
-        body {
-            font-family: 'Avenir Book', 'Inter', sans-serif;
-            background: #fff;
-            color: #111;
-            line-height: 1.6;
+        .pineapple h3, .pineapple h5, .pineapple .chem-stats h6, .pineapple .chem-stats .label { color: #2A9D8F; }
+        .pineapple .full-size { border-color: #2A9D8F; }
+        .pineapple .fill, .pineapple .fill span { background-color: #2A9D8F; }
+        
+        .berry h3, .berry h5, .berry .chem-stats h6, .berry .chem-stats .label { color: #E76F51; }
+        .berry .full-size { border-color: #E76F51; }
+        .berry .fill, .berry .fill span { background-color: #E76F51; }
+        
+        .cocoa h3, .cocoa h5, .cocoa .chem-stats h6, .cocoa .chem-stats .label { color: #F4A261; }
+        .cocoa .full-size { border-color: #F4A261; }
+        .cocoa .fill, .cocoa .fill span { background-color: #F4A261; }
+        
+        .quality-mango h3, .quality-mango h5 { color: #E9C46A; }
+        
+        /* CEREAL BOX PRODUCT IMAGES */
+        .cereal-box {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            min-height: 55vw;
         }
-
-        main { margin: 0 auto; max-width: 1920px; }
-
-        h2, h3, h4, h5 {
-            font-family: 'EuclidFlexLight', 'Space Grotesk', sans-serif;
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+        .mango-box { background-image: url("assets/images/products/mango-cereal.svg"); }
+        .pineapple-box { background-image: url("assets/images/products/pineapple-cereal.svg"); }
+        .berry-box { background-image: url("assets/images/products/berry-cereal.svg"); }
+        .cocoa-box { background-image: url("assets/images/products/cocoa-cereal.svg"); }
+        
+        /* LION'S MANE SCIENCE IMAGES */
+        .mushroom-img {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            min-height: 40vw;
         }
-
-        h2 { font-size: 5vw; letter-spacing: 0.2em; }
-        h3 { font-size: 2.5vw; letter-spacing: 0.1em; }
-        h4 { font-family: 'EuclidFlexMedium', sans-serif; font-size: 1.2em; }
-        h5 { font-family: 'EuclidFlexMedium', sans-serif; font-size: 1em; margin-bottom: 0.75rem; }
-
-        /* MARQUEE / HERO */
-        .marquee {
-            background: linear-gradient(135deg, #F4A261 0%, #E76F51 50%, #2A9D8F 100%);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .marquee h1 {
-            font-family: 'EuclidFlexLight', sans-serif;
-            font-size: 6vw;
-            letter-spacing: 0.15em;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-
-        h3.subhead {
-            color: #fff;
-            margin: 0 8vw;
-            text-align: center;
-            font-size: 1.5vw;
-            line-height: 1.5;
-            opacity: 0.95;
-        }
-
-        .shop-now-link {
-            background-color: #fff;
-            box-shadow: 0 0 7px 0 rgba(0,0,0,0.2);
-            border-radius: 2px;
-            color: #264653;
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            letter-spacing: 2px;
-            line-height: 1em;
-            text-decoration: none;
-            text-transform: uppercase;
-            position: fixed;
-            right: 30px;
-            bottom: 30px;
-            padding: 15px 30px;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .shop-now-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        /* GENERIC CARD CLASSES */
-        .title-card h2, .title-card h3 {
-            color: #fff !important;
-            margin-bottom: 0;
-            text-align: center;
-        }
-
-        .card-content {
-            display: flex;
-            margin: 0 15%;
-            gap: 4rem;
-        }
-
-        .card-content .column { width: 50%; }
-
-        .copyblock h3 {
-            font-size: 2.5vw;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-
-        .copyblock h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-
-        .copyblock p {
-            letter-spacing: 1px;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .product-img {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            min-height: 400px;
-        }
-
-        /* PRODUCT CARDS */
-        .product-card {
-            padding: 6rem 0;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .product-card.bg-img {
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* MANGO COCONUT */
-        .mango { background: linear-gradient(135deg, #E9C46A 0%, #F4A261 100%); }
-        .mango .copyblock { color: #fff; }
-
-        /* PINEAPPLE BANANA */
-        .pineapple { background: linear-gradient(135deg, #2A9D8F 0%, #264653 100%); }
-        .pineapple .copyblock { color: #fff; }
-
-        /* BERRY TROPICAL */
-        .berry { background: linear-gradient(135deg, #E76F51 0%, #F4A261 100%); }
-        .berry .copyblock { color: #fff; }
-
-        /* COCOA LION */
-        .cocoa { background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%); }
-        .cocoa .copyblock { color: #fff; }
-
-        /* QUALITY SECTION */
-        .quality {
-            background: linear-gradient(135deg, #2A9D8F 0%, #264653 100%);
-            padding: 8rem 2rem;
-            text-align: center;
-        }
-
-        .quality h2 { margin-bottom: 4rem; }
-
-        .quality .card-content {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-        }
-
-        .quality .column {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .quality h4 {
-            color: #E9C46A;
-            margin: 1.5rem 0 1rem;
-        }
-
-        .quality p {
-            color: rgba(255,255,255,0.85);
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .icon-circle {
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto;
-        }
-
-        /* SCIENCE SECTION */
-        .science {
-            background: #F8F5F0;
-            padding: 8rem 2rem;
-        }
-
-        .science h2 {
-            color: #264653 !important;
-            margin-bottom: 4rem;
-        }
-
-        .science-section {
-            display: flex;
-            margin: 0 10% 6rem;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .science-section:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .science-visual {
-            flex: 1;
-            min-height: 400px;
-            background: linear-gradient(135deg, #E9C46A, #F4A261);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-        }
-
-        .science-text {
-            flex: 1;
-        }
-
-        .science-text h5 {
-            color: #E76F51;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .science-text h4 {
-            color: #264653;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .science-text p {
-            color: #555;
-            letter-spacing: 1px;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* STATS BARS */
-        .chem-stats { margin-top: 2rem; }
-        .chem-stats h5 { color: #264653; margin-bottom: 0.75rem; }
-
-        .pct-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .full-size {
-            flex-grow: 1;
-            border: 2px solid #2A9D8F;
-            margin-right: 12px;
-            height: 28px;
-            position: relative;
-        }
-
-        .fill {
-            background: #2A9D8F;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .fill span {
-            color: #fff;
-            font-family: 'EuclidFlexMedium', sans-serif;
-            font-size: 0.75rem;
-            padding: 0 8px;
-            white-space: nowrap;
-        }
-
-        .pct-bar .label {
-            font-family: 'EuclidFlexMedium', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #264653;
-            min-width: 60px;
-        }
-
-        /* AWARDS */
-        .awards {
-            background: linear-gradient(135deg, #264653 0%, #1a3a47 100%);
-            padding: 8rem 2rem;
-        }
-
-        .awards h2 { margin-bottom: 4rem; }
-
-        .awards .card-content {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .awards .column {
-            text-align: center;
-            padding: 2rem;
-            min-width: 200px;
-        }
-
-        .awards h5 {
-            color: #E9C46A;
-            font-size: 0.9rem;
-        }
-
-        .award-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 6rem 4rem 3rem;
-        }
-
-        .footer-content {
-            display: flex;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content .column:first-child { flex: 2; }
-
-        footer h5 {
-            color: #E9C46A;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-
-        footer p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        footer nav a {
-            display: block;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        footer nav a:hover { color: #E9C46A; }
-
-        .copyright {
-            text-align: center;
-            padding-top: 4rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            h2 { font-size: 8vw; }
-            h3 { font-size: 5vw; }
-            .card-content { flex-direction: column !important; margin: 0 5%; }
-            .card-content .column { width: 100%; }
-            .science-section { flex-direction: column !important; margin: 0 5% 4rem; }
-            .footer-content { flex-direction: column; }
-            .shop-now-link { right: 15px; bottom: 15px; padding: 12px 20px; font-size: 0.85rem; }
-        }
+        .lions-mane-img { background-image: url("assets/images/products/lions-mane.svg"); }
+        .brain-img { background-image: url("assets/images/products/brain-nutrition.svg"); }
     </style>
 </head>
 <body>
     <main>
-        <!-- HERO / MARQUEE -->
-        <section class="marquee title-card">
-            <div class="logo">🦁</div>
-            <h1>BRAINROAR</h1>
-            <h3 class="subhead">Lion's Mane Cereal for Growing Minds.<br>Each bowl combines organic Lion's Mane mushroom extract with real tropical fruits.</h3>
+        <!-- MARQUEE / HERO -->
+        <section class="marquee title-card bg-img">
+            <div class="logo">
+                <img src="assets/images/brainroar-logo.svg" alt="BrainRoar" width="400">
+            </div>
+            <h3 class="subhead">Lion's Mane Cereal for Growing Minds. Each bowl combines organic Lion's Mane mushroom extract with real tropical fruits.</h3>
         </section>
 
         <!-- MANGO COCONUT -->
-        <section class="product-card mango">
+        <section class="mango title-card bg-img">
+            <h2>Mango Coconut</h2>
+            <h3>Purely the Brain</h3>
+        </section>
+        <section class="mango product-card bg-img">
             <div class="card-content">
-                <div class="column product-img">🥭🥥</div>
-                <div class="column copyblock">
+                <div class="column product-img">
+                    <div class="img-holder cereal-box mango-box"></div>
+                </div>
+                <div class="copyblock column">
                     <h3>Mango Coconut</h3>
                     <h4>Sunrise Brain Fuel</h4>
                     <p>Sweet Philippine mangoes blended with creamy coconut flakes. Each serving contains 500mg of organic Lion's Mane extract to kickstart morning focus and creativity.</p>
                     <p>We source our mangoes from sustainable farms in the Philippines, ensuring peak ripeness and maximum nutrient density in every spoonful.</p>
+                    <div class="chem-stats">
+                        <h5>Nutritional Profile</h5>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 95%;"><span>Organic Lion's Mane</span></div>
+                            </div>
+                            <span class="label">500mg</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 85%;"><span>Real Mango</span></div>
+                            </div>
+                            <span class="label">30%</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 70%;"><span>Coconut Flakes</span></div>
+                            </div>
+                            <span class="label">15%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- PINEAPPLE BANANA -->
-        <section class="product-card pineapple">
-            <div class="card-content">
-                <div class="column copyblock">
+        <section class="pineapple title-card bg-img">
+            <h2>Pineapple Banana</h2>
+            <h3>Jungle Energy Mix</h3>
+        </section>
+        <section class="pineapple product-card bg-img">
+            <div class="card-content flex-reversed">
+                <div class="copyblock column">
                     <h3>Pineapple Banana</h3>
-                    <h4>Jungle Energy Mix</h4>
+                    <h4>All Day Focus</h4>
                     <p>Golden Hawaiian pineapple meets ripe Costa Rican bananas. Enhanced with Lion's Mane for sustained energy and improved memory retention throughout the school day.</p>
-                    <p>No sugar crashes — just natural, sustained energy from real fruit and ancient mushroom wisdom.</p>
+                    <p>No sugar crashes. Just natural, sustained energy from real fruit and ancient mushroom wisdom.</p>
+                    <div class="chem-stats">
+                        <h5>Nutritional Profile</h5>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 95%;"><span>Organic Lion's Mane</span></div>
+                            </div>
+                            <span class="label">500mg</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 80%;"><span>Pineapple</span></div>
+                            </div>
+                            <span class="label">25%</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 65%;"><span>Banana</span></div>
+                            </div>
+                            <span class="label">20%</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="column product-img">🍍🍌</div>
+                <div class="column product-img">
+                    <div class="img-holder cereal-box pineapple-box"></div>
+                </div>
             </div>
         </section>
 
         <!-- BERRY TROPICAL -->
-        <section class="product-card berry">
+        <section class="berry title-card bg-img">
+            <h2>Berry Tropical</h2>
+            <h3>Antioxidant Brain Boost</h3>
+        </section>
+        <section class="berry product-card bg-img">
             <div class="card-content">
-                <div class="column product-img">🍓🥝</div>
-                <div class="column copyblock">
+                <div class="column product-img">
+                    <div class="img-holder cereal-box berry-box"></div>
+                </div>
+                <div class="copyblock column">
                     <h3>Berry Tropical</h3>
-                    <h4>Antioxidant Brain Boost</h4>
-                    <p>Strawberries, kiwi, and açai berries create an antioxidant powerhouse. Combined with Lion's Mane to protect young neurons and support healthy brain development.</p>
+                    <h4>Neural Protection</h4>
+                    <p>Strawberries, kiwi, and acai berries create an antioxidant powerhouse. Combined with Lion's Mane to protect young neurons and support healthy brain development.</p>
                     <p>Rich in polyphenols and vitamin C for immune support alongside cognitive enhancement.</p>
+                    <div class="chem-stats">
+                        <h5>Nutritional Profile</h5>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 95%;"><span>Organic Lion's Mane</span></div>
+                            </div>
+                            <span class="label">500mg</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 75%;"><span>Mixed Berries</span></div>
+                            </div>
+                            <span class="label">22%</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 60%;"><span>Acai</span></div>
+                            </div>
+                            <span class="label">8%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- COCOA LION -->
-        <section class="product-card cocoa">
-            <div class="card-content">
-                <div class="column copyblock">
+        <section class="cocoa title-card bg-img">
+            <h2>Cocoa Lion</h2>
+            <h3>Brainy Chocolate Dream</h3>
+        </section>
+        <section class="cocoa product-card bg-img">
+            <div class="card-content flex-reversed">
+                <div class="copyblock column">
                     <h3>Cocoa Lion Crunch</h3>
-                    <h4>Brainy Chocolate Dream</h4>
+                    <h4>Kid Approved</h4>
                     <p>Fair-trade cocoa with crunchy tiger nuts. Lion's Mane meets cacao flavonoids for the ultimate brain-boosting treat that tastes like dessert.</p>
-                    <p>School-safe and nut-free. Kids actually ask for this cereal — breakfast battles solved.</p>
+                    <p>School-safe and nut-free. Kids actually ask for this cereal. Breakfast battles solved.</p>
+                    <div class="chem-stats">
+                        <h5>Nutritional Profile</h5>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 95%;"><span>Organic Lion's Mane</span></div>
+                            </div>
+                            <span class="label">500mg</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 85%;"><span>Fair Trade Cocoa</span></div>
+                            </div>
+                            <span class="label">18%</span>
+                        </div>
+                        <div class="pct-bar">
+                            <div class="full-size">
+                                <div class="fill" style="width: 70%;"><span>Tiger Nuts</span></div>
+                            </div>
+                            <span class="label">12%</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="column product-img">🍫🌰</div>
+                <div class="column product-img">
+                    <div class="img-holder cereal-box cocoa-box"></div>
+                </div>
             </div>
         </section>
 
         <!-- QUALITY -->
-        <section class="quality title-card">
+        <section class="quality title-card bg-img">
             <h2>Quality Driven</h2>
-            <div class="card-content">
+            <div class="card-content flex jc-sb">
                 <div class="column">
-                    <div class="icon-circle">🍄</div>
-                    <h4>Organic Lion's Mane</h4>
-                    <p>Dual-extracted for maximum potency. 500mg per serving — the clinically studied dose for cognitive benefits.</p>
+                    <div class="extracted img-holder mushroom-img lions-mane-img"></div>
+                    <h4>Organic Lion's Mane<br>Extract</h4>
+                    <p>Dual-extracted for maximum potency. 500mg per serving of USDA certified organic Lion's Mane mushroom.</p>
                 </div>
                 <div class="column">
-                    <div class="icon-circle">🥭</div>
-                    <h4>Real Tropical Fruits</h4>
-                    <p>Freeze-dried at peak ripeness. No artificial flavors, colors, or preservatives — ever.</p>
+                    <div class="strain img-holder"></div>
+                    <h4>Real Tropical<br>Fruits</h4>
+                    <p>Freeze-dried at peak ripeness. No artificial flavors, colors, or preservatives ever.</p>
                 </div>
                 <div class="column">
-                    <div class="icon-circle">✓</div>
-                    <h4>School-Safe</h4>
+                    <div class="derived img-holder"></div>
+                    <h4>100% School<br>Safe</h4>
                     <p>Completely nut-free and safe for classrooms. Developed with pediatric nutritionists.</p>
                 </div>
             </div>
         </section>
 
         <!-- SCIENCE -->
-        <section class="science title-card">
-            <h2>Grounded by Science</h2>
-            
-            <div class="science-section">
-                <div class="science-visual">🍄</div>
-                <div class="science-text">
-                    <h5>The Mushroom</h5>
-                    <h4>What's Lion's Mane?</h4>
-                    <p>Lion's Mane (Hericium erinaceus) contains hericenones and erinacines — compounds that stimulate Nerve Growth Factor (NGF) production. NGF is essential for the growth, maintenance, and survival of neurons.</p>
-                    <p>Unlike typical "brain supplements," Lion's Mane can cross the blood-brain barrier, delivering benefits directly to neural tissue. It's been used in traditional Chinese medicine for over 2,000 years.</p>
-                    
-                    <div class="chem-stats">
-                        <h5>Nutritional Profile</h5>
-                        <div class="pct-bar">
-                            <div class="full-size">
-                                <div class="fill" style="width: 95%;"><span>Polysaccharides</span></div>
-                            </div>
-                            <span class="label">&gt;30%</span>
-                        </div>
-                        <div class="pct-bar">
-                            <div class="full-size">
-                                <div class="fill" style="width: 85%;"><span>Beta-Glucans</span></div>
-                            </div>
-                            <span class="label">&gt;25%</span>
-                        </div>
-                        <div class="pct-bar">
-                            <div class="full-size">
-                                <div class="fill" style="width: 60%;"><span>Erinacines</span></div>
-                            </div>
-                            <span class="label">0.5%</span>
-                        </div>
+        <section class="science title-card bg-img">
+            <h2>Grounded<br>by Science</h2>
+            <div id="Science" class="card-content d-block">
+                <section class="pure">
+                    <div class="product-img column">
+                        <div class="pure img-holder mushroom-img lions-mane-img"></div>
                     </div>
-                </div>
-            </div>
-
-            <div class="science-section">
-                <div class="science-text">
-                    <h5>The Research</h5>
-                    <h4>Cognitive Benefits for Kids</h4>
-                    <p>Recent studies suggest Lion's Mane supports working memory, focus duration, and cognitive flexibility in children. The mushroom's neurotrophic compounds help build and maintain the neural connections essential for learning.</p>
-                    <p>BrainRoar delivers 500mg per serving — the amount used in clinical studies showing measurable improvements in attention and memory tasks.</p>
-                    <p>Importantly, Lion's Mane is completely safe for children. It's simply a delicious edible mushroom with no psychedelic properties — just pure cognitive support.</p>
-                </div>
-                <div class="science-visual" style="background: linear-gradient(135deg, #E76F51, #F4A261);">🧠</div>
+                    <div class="copyblock column">
+                        <h5>Pure + Potent</h5>
+                        <h4>What's Lion's Mane?</h4>
+                        <p>Lion's Mane (Hericium erinaceus) contains hericenones and erinacines — compounds that stimulate Nerve Growth Factor (NGF) production. NGF is essential for the growth, maintenance, and survival of neurons.</p>
+                        <p>Unlike typical brain supplements, Lion's Mane can cross the blood-brain barrier, delivering benefits directly to neural tissue. It's been used in traditional Chinese medicine for over 2,000 years.</p>
+                    </div>
+                </section>
+                <section class="nature">
+                    <div class="copyblock column">
+                        <h5>Elevating Nature</h5>
+                        <h4>Cognitive Benefits for Kids</h4>
+                        <p>Recent studies suggest Lion's Mane supports working memory, focus duration, and cognitive flexibility in children. The mushroom's neurotrophic compounds help build and maintain the neural connections essential for learning.</p>
+                        <p>BrainRoar delivers 500mg per serving — the amount used in clinical studies showing measurable improvements in attention and memory tasks.</p>
+                        <p>Importantly, Lion's Mane is completely safe for children. It's simply a delicious edible mushroom with no psychedelic properties.</p>
+                    </div>
+                    <div class="product-img column">
+                        <div class="nature img-holder brain-img"></div>
+                    </div>
+                </section>
             </div>
         </section>
 
         <!-- AWARDS -->
-        <section class="awards title-card">
+        <section class="awards title-card bg-img">
             <h2>Recognition</h2>
             <div class="card-content">
                 <div class="column">
-                    <div class="award-icon">🏆</div>
+                    <div class="rooster logo-img"></div>
                     <h5>Best Kids' Cereal 2025</h5>
                 </div>
                 <div class="column">
-                    <div class="award-icon">⭐</div>
+                    <div class="testing logo-img"></div>
                     <h5>Clean Label Project</h5>
                 </div>
                 <div class="column">
-                    <div class="award-icon">🌱</div>
+                    <div class="cannabis logo-img"></div>
                     <h5>USDA Organic Certified</h5>
                 </div>
                 <div class="column">
-                    <div class="award-icon">💡</div>
+                    <div class="thc logo-img"></div>
                     <h5>Innovation in Nutrition</h5>
+                </div>
+                <div class="column">
+                    <div class="cannabist logo-img"></div>
+                    <h5>Parent Tested</h5>
+                </div>
+                <div class="column">
+                    <div class="ht logo-img"></div>
+                    <h5>Pediatrician Approved</h5>
                 </div>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <div class="footer-content">
-                <div class="column">
-                    <h5>BrainRoar</h5>
-                    <p>Founded by parents who wanted a better breakfast option for their kids. We believe every child deserves to start their day with brain-boosting nutrition that actually tastes good.</p>
-                    <p>No compromises — just real ingredients, real science, and real deliciousness.</p>
-                </div>
-                <div class="column">
+            <div class="column">
+                <img src="assets/images/brainroar-logo-sm.svg" alt="BrainRoar">
+                <p>Founded by parents who wanted a better breakfast option for their kids. We believe every child deserves to start their day with brain-boosting nutrition that actually tastes good.</p>
+                <p class="copyright">&copy; 2026, All Rights Reserved</p>
+            </div>
+            <div class="column">
+                <div class="spacer">
                     <h5>Get in touch</h5>
                     <nav>
                         <a href="#">Contact</a>
@@ -587,8 +318,6 @@
                         <a href="#">Privacy Policy</a>
                         <a href="#">Press</a>
                     </nav>
-                </div>
-                <div class="column">
                     <h5>Find Our Products</h5>
                     <nav>
                         <a href="#">Store Locator</a>
@@ -598,12 +327,19 @@
                     </nav>
                 </div>
             </div>
-            <div class="copyright">
-                © 2026 BrainRoar Foods, Inc. | These statements have not been evaluated by the FDA.
+            <div class="column">
+                <div class="spacer">
+                    <h5>Follow us</h5>
+                    <div class="icon-grid">
+                        <a href="#" class="twitter" target="_blank"></a>
+                        <a href="#" class="fb" target="_blank"></a>
+                        <a href="#" class="insta" target="_blank"></a>
+                    </div>
+                </div>
             </div>
         </footer>
     </main>
-
+    
     <a href="#" class="shop-now-link">Shop Now</a>
 </body>
 </html>
